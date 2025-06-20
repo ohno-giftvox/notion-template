@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-notiontemplate-staging-9a358-authRole",
+      "UnauthRoleArn": "arn:aws:iam::264039603719:role/amplify-notiontemplate-staging-9a358-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::264039603719:role/amplify-notiontemplate-staging-9a358-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-notiontemplate-staging-9a358-deployment",
+      "UnauthRoleName": "amplify-notiontemplate-staging-9a358-unauthRole",
+      "StackName": "amplify-notiontemplate-staging-9a358",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:264039603719:stack/amplify-notiontemplate-staging-9a358/46b2da30-4cea-11f0-a829-0ed89468e7c7",
+      "AmplifyAppId": "dalm88axkjhq6"
+    }
+  }
+}
