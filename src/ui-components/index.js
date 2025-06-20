@@ -4,5 +4,5 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-export { default as Amount } from "./Amount";
+export { default as AmountSelect } from "./AmountSelect";
 export { default as studioTheme } from "./studioTheme";

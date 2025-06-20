@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { FlexProps, SelectFieldProps } from "@aws-amplify/ui-react";
+import { ButtonProps, FlexProps, SelectFieldProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -17,11 +17,16 @@ export declare type Variant = {
     overrides: EscapeHatchProps;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type AmountOverridesProps = {
-    Amount?: PrimitiveOverrideProps<FlexProps>;
+export declare type AmountSelectOverridesProps = {
+    AmountSelect?: PrimitiveOverrideProps<FlexProps>;
     SelectField?: PrimitiveOverrideProps<SelectFieldProps>;
+    Button?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
-export declare type AmountProps = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: AmountOverridesProps | undefined | null;
+export declare type AmountSelectProps = React.PropsWithChildren<Partial<FlexProps> & {
+    buttonLabel?: String;
+    buttonState?: Boolean;
+    templateSelect?: React.ReactNode;
+} & {
+    overrides?: AmountSelectOverridesProps | undefined | null;
 }>;
-export default function Amount(props: AmountProps): React.ReactElement;
+export default function AmountSelect(props: AmountSelectProps): React.ReactElement;

@@ -1,4 +1,4 @@
-import Amount from "./ui-components/Amount"
+import Amount from "./component/Amount";
 
 function App() {
 
