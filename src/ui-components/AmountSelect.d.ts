@@ -24,8 +24,8 @@ export declare type AmountSelectOverridesProps = {
 } & EscapeHatchProps;
 export declare type AmountSelectProps = React.PropsWithChildren<Partial<FlexProps> & {
     buttonLabel?: String;
-    buttonState?: Boolean;
     templateSelect?: React.ReactNode;
+    buttonState?: Boolean;
 } & {
     overrides?: AmountSelectOverridesProps | undefined | null;
 }>;

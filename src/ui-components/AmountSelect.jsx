@@ -11,8 +11,8 @@ import { Button, Flex, SelectField } from "@aws-amplify/ui-react";
 export default function AmountSelect(props) {
   const {
     buttonLabel = "\u8FFD\u52A0\u3059\u308B",
-    buttonState = true,
     templateSelect,
+    buttonState = true,
     overrides,
     ...rest
   } = props;
@@ -36,8 +36,7 @@ export default function AmountSelect(props) {
         height="unset"
         alignItems="center"
         shrink="0"
-        label="テンプレート選択"
-        placeholder="選んでください"
+        placeholder="テンプレートを選択"
         size="default"
         isDisabled={false}
         labelHidden={false}
@@ -50,9 +49,8 @@ export default function AmountSelect(props) {
         height="unset"
         shrink="0"
         size="large"
-        isDisabled={false}
+        isDisabled={buttonState}
         variation="primary"
-        disabled={buttonState}
         children={buttonLabel}
         {...getOverrideProps(overrides, "Button")}
       ></Button>
