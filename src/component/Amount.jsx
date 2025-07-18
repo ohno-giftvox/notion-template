@@ -1,8 +1,15 @@
 import AmountSelect from "../ui-components/AmountSelect";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
+import { postFetch } from "../../functions";
 
 function Amount(){
   const [option, setOption] = useState([]);
+  const [buttonState, setButtonState] = useState(true);
+  const [tempId,setTempId] = useState('');
+  const [searchParams] = useSearchParams();
+  const pageId = searchParams.get('id');
+  const insertFuncUrl = "https://5435rsl5qvfs6myzs3ypcmahyy0smtyb.lambda-url.ap-northeast-1.on.aws/";
 
   useEffect(()=>{
     (async function(){
@@ -16,11 +23,37 @@ function Amount(){
     })();
   },[])
 
+  const handleSelectChange = (e)=>{
+    const value = e.target.value;
+    if(value){
+      setButtonState(false);
+      setTempId(value);
+    }else{
+      setButtonState(true);
+      setTempId('');
+    }
+  }
+
+  const handleClick = async()=>{
+    console.log(tempId);
+    const params = {
+      pageId: pageId,
+      tempId: tempId
+    }
+    const insertResult = await postFetch(insertFuncUrl,params);
+    console.log("client",insertResult);
+  }
+
   useEffect(()=>{
-    console.log(option)
-  },[option])
+    console.log(pageId);
+  },[pageId])
   return(
-    <AmountSelect templateSelect={option}></AmountSelect>
+    <AmountSelect
+     templateSelect={option}
+     onChange={handleSelectChange}
+     buttonState={buttonState}
+     handleClick={handleClick}
+     ></AmountSelect>
   )
 }
 

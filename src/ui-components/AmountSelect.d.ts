@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { ButtonProps, FlexProps, SelectFieldProps } from "@aws-amplify/ui-react";
+import { SyntheticEvent } from "react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -26,6 +27,8 @@ export declare type AmountSelectProps = React.PropsWithChildren<Partial<FlexProp
     buttonLabel?: String;
     templateSelect?: React.ReactNode;
     buttonState?: Boolean;
+    handleChange?: (event: SyntheticEvent) => void;
+    handleClick?: (event: SyntheticEvent) => void;
 } & {
     overrides?: AmountSelectOverridesProps | undefined | null;
 }>;

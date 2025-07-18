@@ -13,6 +13,8 @@ export default function AmountSelect(props) {
     buttonLabel = "\u8FFD\u52A0\u3059\u308B",
     templateSelect,
     buttonState = true,
+    handleChange,
+    handleClick,
     overrides,
     ...rest
   } = props;
@@ -20,13 +22,13 @@ export default function AmountSelect(props) {
     <Flex
       gap="10px"
       direction="column"
-      width="600px"
+      width="unset"
       height="400px"
       justifyContent="center"
-      alignItems="center"
+      alignItems="flex-start"
       overflow="hidden"
       position="relative"
-      padding="54px 60px 54px 60px"
+      padding="54px 20px 54px 20px"
       backgroundColor="rgba(52,52,52,1)"
       {...getOverrideProps(overrides, "AmountSelect")}
       {...rest}
@@ -42,6 +44,7 @@ export default function AmountSelect(props) {
         labelHidden={false}
         variation="default"
         children={templateSelect}
+        onChange={handleChange}
         {...getOverrideProps(overrides, "SelectField")}
       ></SelectField>
       <Button
@@ -52,6 +55,7 @@ export default function AmountSelect(props) {
         isDisabled={buttonState}
         variation="primary"
         children={buttonLabel}
+        onClick={handleClick}
         {...getOverrideProps(overrides, "Button")}
       ></Button>
     </Flex>
