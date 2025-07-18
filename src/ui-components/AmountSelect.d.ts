@@ -29,6 +29,8 @@ export declare type AmountSelectProps = React.PropsWithChildren<Partial<FlexProp
     buttonState?: Boolean;
     handleChange?: (event: SyntheticEvent) => void;
     handleClick?: (event: SyntheticEvent) => void;
+    selectState?: Boolean;
+    selectPlaceHolder?: String;
 } & {
     overrides?: AmountSelectOverridesProps | undefined | null;
 }>;

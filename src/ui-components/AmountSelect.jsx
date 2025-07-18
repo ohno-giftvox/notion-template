@@ -15,6 +15,8 @@ export default function AmountSelect(props) {
     buttonState = true,
     handleChange,
     handleClick,
+    selectState = true,
+    selectPlaceHolder,
     overrides,
     ...rest
   } = props;
@@ -23,12 +25,12 @@ export default function AmountSelect(props) {
       gap="10px"
       direction="column"
       width="unset"
-      height="400px"
-      justifyContent="center"
+      height="unset"
+      justifyContent="flex-start"
       alignItems="flex-start"
       overflow="hidden"
       position="relative"
-      padding="54px 20px 54px 20px"
+      padding="20px 20px 20px 20px"
       backgroundColor="rgba(52,52,52,1)"
       {...getOverrideProps(overrides, "AmountSelect")}
       {...rest}
@@ -38,9 +40,9 @@ export default function AmountSelect(props) {
         height="unset"
         alignItems="center"
         shrink="0"
-        placeholder="テンプレートを選択"
+        placeholder={selectPlaceHolder}
         size="default"
-        isDisabled={false}
+        isDisabled={selectState}
         labelHidden={false}
         variation="default"
         children={templateSelect}
@@ -51,7 +53,7 @@ export default function AmountSelect(props) {
         width="unset"
         height="unset"
         shrink="0"
-        size="large"
+        size="default"
         isDisabled={buttonState}
         variation="primary"
         children={buttonLabel}

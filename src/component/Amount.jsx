@@ -6,7 +6,10 @@ import { postFetch } from "../../functions";
 function Amount(){
   const [option, setOption] = useState([]);
   const [buttonState, setButtonState] = useState(true);
+  const [buttonText, setButtonText] = useState('追加')
   const [tempId,setTempId] = useState('');
+  const [selectState, setSelectState] = useState(true);
+  const [selectText, setSelectText] = useState('読み込み中です');
   const [searchParams] = useSearchParams();
   const pageId = searchParams.get('id');
   const insertFuncUrl = "https://5435rsl5qvfs6myzs3ypcmahyy0smtyb.lambda-url.ap-northeast-1.on.aws/";
@@ -20,6 +23,8 @@ function Amount(){
         return <option key={item.id} value={item.id}>{item.name}</option>
       });
       setOption(options)
+      setSelectState(false);
+      setSelectText('テンプレートを選択');
     })();
   },[])
 
@@ -35,12 +40,15 @@ function Amount(){
   }
 
   const handleClick = async()=>{
-    console.log(tempId);
+    setButtonState(true);
+    setButtonText('追加しています...');
     const params = {
       pageId: pageId,
       tempId: tempId
     }
     const insertResult = await postFetch(insertFuncUrl,params);
+    setButtonState(false);
+    setButtonText('追加');
     console.log("client",insertResult);
   }
 
@@ -53,6 +61,9 @@ function Amount(){
      onChange={handleSelectChange}
      buttonState={buttonState}
      handleClick={handleClick}
+     buttonLabel={buttonText}
+     selectState={selectState}
+     selectPlaceHolder={selectText}
      ></AmountSelect>
   )
 }
